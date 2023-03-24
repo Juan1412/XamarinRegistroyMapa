@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:FinalXamarin.ViewModels"
+             x:Class="FinalXamarin.MainPage">
+
+    <ContentPage.BindingContext>
+        <vm:MainViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout BackgroundColor="AliceBlue">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="20"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Frame Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="8">
+                <Image Source="facebook.png"/>
+            </Frame>
+
+            
+                    <Button Grid.Row="4" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="6" 
+                        Command="{Binding RegisterPersona}" Text="AGREGAR AMIGO" TextColor="{StaticResource EntryColor}"
+                        BackgroundColor="{StaticResource ButtonColor}" BorderColor="{StaticResource bordes}" BorderWidth="1" />
+
+          
+                    <Button Grid.Row="7" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="6" 
+                        Command="{Binding ListPersonas}" Text="LISTA DE AMIGOS" TextColor="{StaticResource EntryColor}"
+                        BackgroundColor="{StaticResource ButtonColor}" BorderColor="{StaticResource bordes}" BorderWidth="1" />
+      
+        </Grid>
+    </StackLayout>
+
+</ContentPage>

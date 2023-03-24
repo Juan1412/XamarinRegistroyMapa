@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:FinalXamarin.ViewModels"
+             x:Class="FinalXamarin.View.PersonaListPage">
+    <ContentPage.BindingContext>
+        <vm:ListPersonaViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Inicio" Command="{Binding Exit}"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="20"></RowDefinition>
+                    <RowDefinition Height="20"></RowDefinition>
+                    <RowDefinition Height="20"></RowDefinition>
+                    <RowDefinition Height="20"></RowDefinition>
+                    <RowDefinition Height="600"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Frame Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="9" BackgroundColor="{StaticResource Titulos}">
+                    <Label Text="LISTA DE AMIGOS" FontSize="30"
+                           TextColor="{StaticResource EntryColor}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+                </Frame>
+
+
+                <Button 
+                    Grid.Row="3" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="3"
+                    BackgroundColor="{StaticResource ButtonColor}" TextColor="{StaticResource EntryColor}"
+                    Command="{Binding Delete}"
+                    Text="ELIMINAR">
+                </Button>
+                
+                <Button Command="{Binding Ubicacion}"
+                    BackgroundColor="{StaticResource ButtonColor}" TextColor="{StaticResource EntryColor}"
+                    Grid.Row="3" Grid.RowSpan="2" Grid.Column="3" Grid.ColumnSpan="3"
+                    Text="UBICACION">
+                </Button>
+
+                <Button Command="{Binding Update}"
+                    BackgroundColor="{StaticResource ButtonColor}" TextColor="{StaticResource EntryColor}"
+                    Grid.Row="3" Grid.RowSpan="2" Grid.Column="6" Grid.ColumnSpan="3"
+                    Text="MODIFICAR">
+                </Button>
+                
+                <ListView x:Name="ListaProductos" ItemsSource="{Binding ListPersonas}" SelectedItem="{Binding SelectPersona}"
+                          Grid.Row="5" Grid.RowSpan="5" Grid.Column="0" Grid.ColumnSpan="9" Margin="5" 
+                          BackgroundColor="{StaticResource Lista}"> 
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="25" />
+                                        <RowDefinition Height="25" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label                                            
+                                        Grid.Row="0"
+                                        TextColor="{StaticResource EntryColor}"
+                                        Grid.RowSpan="5"
+                                        Grid.Column="0"
+                                        Grid.ColumnSpan="3"
+                                        FontFamily="Salo"
+                                        HorizontalOptions="Start"
+                                        Text="{Binding Nombre}"
+                                        VerticalOptions="StartAndExpand" />
+
+                                    <Label
+                                        TextColor="{StaticResource EntryColor}"
+                                        Grid.Row="0"
+                                        Grid.RowSpan="5"
+                                        Grid.Column="3"
+                                        Grid.ColumnSpan="3"
+                                        FontFamily="Salo"
+                                        HorizontalOptions="Start"
+                                        Text="{Binding Telefono}"
+                                        VerticalOptions="StartAndExpand" />
+
+                                    <Label
+                                        TextColor="{StaticResource EntryColor}"
+                                        Grid.Row="0"
+                                        Grid.RowSpan="5"
+                                        Grid.Column="6"
+                                        Grid.ColumnSpan="3"
+                                        FontFamily="Salo"
+                                        HorizontalOptions="Start"
+                                        Text="{Binding Direccion}"
+                                        VerticalOptions="StartAndExpand" />
+
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+
+
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

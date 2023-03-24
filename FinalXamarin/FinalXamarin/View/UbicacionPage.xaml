@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:FinalXamarin.ViewModels"
+             xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
+             x:Class="FinalXamarin.View.UbicacionPage">
+
+    <ContentPage.BindingContext>
+        <vm:UbicacionViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Inicio" Command="{Binding Exit}"/>
+    </ContentPage.ToolbarItems>
+    <StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="100"/>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"></ColumnDefinition>
+                <ColumnDefinition Width="50"></ColumnDefinition>
+                <ColumnDefinition Width="50"></ColumnDefinition>
+                <ColumnDefinition Width="50"></ColumnDefinition>
+                <ColumnDefinition Width="50"></ColumnDefinition>
+                <ColumnDefinition Width="50"></ColumnDefinition>
+                <ColumnDefinition Width="50"></ColumnDefinition>
+                <ColumnDefinition Width="50"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            
+            
+            <Frame Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="8"
+                   BackgroundColor="{StaticResource Titulos}">
+                <Label Text="LUGAR DE RESIDENCIA" TextColor="{StaticResource EntryColor}" FontSize="30"
+                       HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+            </Frame>
+
+            <Entry Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="6" 
+                   Text="{Binding Address}"  Placeholder="Ingrese Dirección" 
+                   BackgroundColor="{StaticResource EntryColor}"
+                   TextColor="{StaticResource ColorText}" HorizontalTextAlignment="Center"/>
+
+            <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="8" 
+                    Text="Buscar" FontAttributes="Bold" FontSize="10" Clicked="Button_Clicked"
+                    BorderColor="{StaticResource EntryColor}"
+                    BackgroundColor="{StaticResource ButtonColor}"/>
+
+
+            <StackLayout Grid.Row="3" Grid.Column="0" Grid.RowSpan="5" Grid.ColumnSpan="8"> 
+                <maps:Map x:Name="map" InitialCameraUpdate="6.564, -75.819" />
+            </StackLayout>
+            
+        </Grid>
+    </StackLayout>
+</ContentPage>

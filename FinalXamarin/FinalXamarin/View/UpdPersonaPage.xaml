@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:FinalXamarin.ViewModels"
+             x:Class="FinalXamarin.View.UpdPersonaPage">
+    <ContentPage.BindingContext>
+        <vm:UpdPersonaViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Inicio" Command="{Binding Exit}"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Frame Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="9" BackgroundColor="{StaticResource Titulos}" BorderColor="{StaticResource bordes}">
+                    <Label Text="MODIFICAR PERSONAS" FontSize="30"
+                           TextColor="{StaticResource EntryColor}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+                </Frame>
+
+                <Entry Placeholder="Nombre" HorizontalTextAlignment="Center"
+                       BackgroundColor="{StaticResource EntryColor}"
+                       TextColor="{StaticResource ColorText}"
+                       Text="{Binding UpdNombre}"
+                       Grid.Row="5" Grid.RowSpan="1" Grid.Column="2" Grid.ColumnSpan="5"
+                ></Entry>
+
+                <Entry Placeholder="Telefono" HorizontalTextAlignment="Center"
+                       BackgroundColor="{StaticResource EntryColor}"
+                       TextColor="{StaticResource ColorText}"
+                       Text="{Binding UpdTelefono}"
+                       Grid.Row="6" Grid.RowSpan="1" Grid.Column="2" Grid.ColumnSpan="5"
+                ></Entry>
+
+                <Entry Placeholder="Direccion" HorizontalTextAlignment="Center"
+                       BackgroundColor="{StaticResource EntryColor}"
+                       TextColor="{StaticResource ColorText}"
+                       Text="{Binding UpdDireccion}"
+                       Grid.Row="7" Grid.RowSpan="1" Grid.Column="2" Grid.ColumnSpan="5"
+                ></Entry>
+
+
+                <Button 
+                    Grid.Row="8" Grid.RowSpan="1" Grid.Column="3" Grid.ColumnSpan="3"
+                    BorderColor="{StaticResource bordes}"
+                    BackgroundColor="{StaticResource ButtonColor}"
+                    Command="{Binding UpdPersona}"
+                    Text="ACEPTAR" TextColor="{StaticResource EntryColor}">
+                </Button>
+
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
